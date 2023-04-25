@@ -24,19 +24,14 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const [typeFilter, setTypeFilter] = useState("");
-  const [dayFilter, setDayFilter] = useState("");
   const types = ["default", "personal", "shopping", "wishlist", "work"];
-  const days = [
-    { label: "Today", value: "today" },
-    { label: "Last week", value: "week" },
-    { label: "Last month", value: "month" },
-  ];
+  
 
   useEffect(() => {
-    axios.get(`/task?type=${typeFilter}&day=${dayFilter}`).then((res) => {
+    axios.get(`/task?type=${typeFilter}`).then((res) => {
       dispatch(setTasks(res.data.tasks));
     });
-  }, [typeFilter, dayFilter]);
+  }, [typeFilter]);
 
   const { tasks } = useSelector((state) => state.task);
 
@@ -59,24 +54,9 @@ const Home = () => {
               ))}
             </Select>
           </FormControl>
-          <Stack direction="row" spacing={2}>
-            {days.map((day, idx) => (
-              <Button
-                variant="contained"
-                size="small"
-                color={day.value === dayFilter ? "success" : "secondary"}
-                key={`${idx}-${day.value}`}
-                onClick={() => {
-                  setDayFilter(day.value);
-                }}
-              >
-                {day.label}
-              </Button>
-            ))}
-          </Stack>
         </Box>
         <Box display="flex" justifyContent="space-between">
-          <Button onClick={() => {setTypeFilter(''); setDayFilter('')}}>Clear filters</Button>
+          <Button onClick={() => {setTypeFilter('')}}>Clear filters</Button>
         </Box>
         <Box mt="2rem">
           <Grid container spacing={2}>

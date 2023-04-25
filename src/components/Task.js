@@ -1,31 +1,30 @@
-import {
-  Card,
-  Box,
-  CardContent,
-  CardActionArea,
-  Typography,
-  Button
-} from "@mui/material";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Task = ({ task }) => {
 
+  const deleteWish = async (id) => {
+    const res = await fetch(`http://localhost:5000/task/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+    const data = await res.json();
+
+    if (data.ok) {}
+    
+  };
+
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {task.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Date: {task.date.split("T")[0]}
-            </Typography>
-            <Typography sx={{ p: 0 }}>{task.type}</Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Box>
+    <div className="task-container">
+      <div className="task-container-p">
+        <p className="task-container-p-name">{task.name}</p>
+        <p>{task.type}</p>
+      </div>
+      <FontAwesomeIcon icon={faTrash} onClick={() => deleteWish(`${task.id}`)} />
+    </div>
+
   );
 };
 export default Task;

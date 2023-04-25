@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import {
   Box,
   TextField,
@@ -10,8 +11,7 @@ import {
   Button,
   useMediaQuery,
 } from "@mui/material";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import Dropzone from "react-dropzone";
+
 import axios from '../services/api'
 import { setLogin } from "../redux/UserSlice";
 
@@ -19,7 +19,6 @@ const initialRegisterValues = {
   name: "",
   email: "",
   password: "",
-  picture: "",
 };
 
 const initialLoginValues = {
@@ -39,6 +38,7 @@ const loginScehma = Yup.object().shape({
 });
 
 const Login = () => {
+
   const [page, setPage] = useState("login");
   const isLogin = page === "login";
   const isRegister = page === "register";
@@ -88,7 +88,7 @@ const Login = () => {
       }) => (
         <Box p="2rem 0" m="2rem auto" width={isNotMobile ? "50%" : "90%"}>
           <Typography textAlign="center" mb="2rem">
-            Welcome to Taskup
+            Welcome to ToDo
           </Typography>
           <form onSubmit={handleSubmit}>
             <Box display="flex" flexDirection="column" gap="30px">
@@ -103,36 +103,6 @@ const Login = () => {
                     error={Boolean(touched.name) && Boolean(errors.name)}
                     helperText={touched.name && errors.name}
                   />
-                  <Dropzone
-                    multiple={false}
-                    acceptedFiles=".jpg , .png"
-                    onDrop={(acceptedFiles) => {
-                      setFieldValue("picture", acceptedFiles[0]);
-                    }}
-                  >
-                    {({ getRootProps, getInputProps }) => (
-                      <Box
-                        {...getRootProps()}
-                        p="1rem"
-                        border="2px solid #000"
-                        textAlign="center"
-                        sx={{
-                          "&:hover": {
-                            cursor: "pointer",
-                          },
-                        }}
-                      >
-                        <input {...getInputProps()} />
-                        {!values.picture ? (
-                          <Typography>Add picture</Typography>
-                        ) : (
-                          <Typography>
-                            {values.picture.name} <EditOutlinedIcon />
-                          </Typography>
-                        )}
-                      </Box>
-                    )}
-                  </Dropzone>
                 </>
               )}
               <TextField
