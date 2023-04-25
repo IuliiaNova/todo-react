@@ -70,7 +70,7 @@ const TaskForm = ({ mode = "edit", task }) => {
         errors,
       }) => (
         <Box p="2rem 0" m="2rem auto">
-          <Typography textAlign="center" mb="2rem">
+          <Typography textAlign="center" mb="2rem" fontSize="30px">
             ToDo
           </Typography>
           <form onSubmit={handleSubmit}>
@@ -128,7 +128,20 @@ const TaskForm = ({ mode = "edit", task }) => {
               </Button>
             </Box>
           </form>
-          <Button onClick={() => handleDelete(values._id)}>Delete Todo</Button>
+          <Button onClick={() => handleDelete(values._id)}
+          variant="outlined"
+          sx={{
+            marginTop: '2rem',
+            width: '100%',
+            borderColor: '#ff121d',
+            color: '#ff121d',
+            '&:hover': {
+              background: '#FFa590',
+              borderColor: '#ff121d',
+              color: '#FFFFFF'
+            }
+          }}
+                background="#00D5FA">Delete Todo</Button>
         </Box>
       )}
     </Formik>
