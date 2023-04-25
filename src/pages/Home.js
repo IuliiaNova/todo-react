@@ -54,7 +54,16 @@ const Home = () => {
               ))}
             </Select>
           </FormControl>
-          <Button> 
+          <Button sx={{
+            fontSize: '20px',
+            marginTop: '2rem',
+            width: '200px',
+            background: '#46923c',
+            '&:hover': {
+              background: '#acd8a7',
+              borderColor: '#acd8a7'
+            }
+          }}> 
           <Link style={{ textDecoration: "none" }} to="/task/create">
                   Create new ToDo
                 </Link> 
