@@ -10,16 +10,15 @@ import {
   Button,
   useMediaQuery,
 } from "@mui/material";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import Dropzone from "react-dropzone";
+
+
 import axios from '../services/api'
 import { setLogin } from "../redux/UserSlice";
 
 const initialRegisterValues = {
   name: "",
   email: "",
-  password: "",
-  picture: "",
+  password: ""
 };
 
 const initialLoginValues = {
@@ -103,36 +102,7 @@ const Login = () => {
                     error={Boolean(touched.name) && Boolean(errors.name)}
                     helperText={touched.name && errors.name}
                   />
-                  <Dropzone
-                    multiple={false}
-                    acceptedFiles=".jpg , .png"
-                    onDrop={(acceptedFiles) => {
-                      setFieldValue("picture", acceptedFiles[0]);
-                    }}
-                  >
-                    {({ getRootProps, getInputProps }) => (
-                      <Box
-                        {...getRootProps()}
-                        p="1rem"
-                        border="2px solid #000"
-                        textAlign="center"
-                        sx={{
-                          "&:hover": {
-                            cursor: "pointer",
-                          },
-                        }}
-                      >
-                        <input {...getInputProps()} />
-                        {!values.picture ? (
-                          <Typography>Add picture</Typography>
-                        ) : (
-                          <Typography>
-                            {values.picture.name} <EditOutlinedIcon />
-                          </Typography>
-                        )}
-                      </Box>
-                    )}
-                  </Dropzone>
+                  
                 </>
               )}
               <TextField
@@ -170,9 +140,9 @@ const Login = () => {
                 }}
               >
                 {isLogin ? (
-                  <>Not a user, go to register</>
+                  <>You need to Sign Up</>
                 ) : (
-                  <>Already a user, go to login</>
+                  <>Welcome back, Sign In</>
                 )}
               </Typography>
             </Box>

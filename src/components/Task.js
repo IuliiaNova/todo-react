@@ -3,8 +3,7 @@ import {
   Box,
   CardContent,
   CardActionArea,
-  Typography,
-  Button
+  Typography
 } from "@mui/material";
 
 
@@ -17,9 +16,6 @@ const Task = ({ task }) => {
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {task.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Date: {task.date.split("T")[0]}
             </Typography>
             <Typography sx={{ p: 0 }}>{task.type}</Typography>
           </CardContent>
