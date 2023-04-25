@@ -33,7 +33,7 @@ let initialValues = {
 const TaskForm = ({ mode = "edit", task }) => {
 
   const navigate = useNavigate();
-  const types = ["default", "personal", "shopping", "wishlist", "work"];
+  const types = ["sport", "personal", "shopping", "study", "work"];
 
   const handleFormSubmit = (values, onSubmitProps) => {
     if (mode === "edit") {

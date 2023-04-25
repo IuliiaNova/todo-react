@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# CRUD TODO list Frontend
+Este es el proyecto de frontend de la aplicación CDUR Todo List, en el cual se ha puesto principal atención al desarrollo del backend. Se ha utilizado la herramienta ```npx create-react-app``` para facilitar la creación de la aplicación en React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inicio
 
-## Available Scripts
+Para comenzar a utilizar el proyecto de frontend de CDUR Todo List, sigue los siguientes pasos:
 
-In the project directory, you can run:
+1. Clona o descarga el proyecto desde el repositorio en GitHub.
+2. Abre la terminal y navega a la carpeta del proyecto.
+3. Abre la branch **git checkout develop-new**
+4. Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+```
+npm install
+```
+5. EDespués de que se instalen todas las dependencias, ejecuta el siguiente comando para iniciar la aplicación:
+```
+npm start
+```
+6. Crea un archivo **.env** y añada dentro los sigientes variables del entorno:
+```
+REACT_APP_SERVER_URL={REACT_APP_SERVER_URL}
+```
+Tambien puedes mirar el archivo **.env.example**. 
 
-### `npm start`
+! Ten en cuenta que tienes que usar lo mismo URL que de **Backend** !
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+7. La aplicación se abrirá automáticamente en tu navegador en la dirección http://localhost:3000/. Si todo ha ido bien, deberías ver la página de inicio de sesión.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Librerias
+Para realizar el Frontend de applicacion he utizilazo un tutorial y librerias de React:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- axios: para realizar peticiones HTTP, 
+- @mui: para la creación de componentes y estilos, 
+- formik: para la gestión de formularios,
+- yup, para la validación de datos,
+- redux, para la gestión del estado de la aplicación.
 
-### `npm run build`
+Esa combinacion de librerias no es sencilla y no creo que volvere a usalo en este formato. Ademas una de las cosas que me qustaria cambiar es **quitar @mui y instalar SASS**. Creo que asi el codigo sera mas legible 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Acceso
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El proyecto cuenta con dos páginas de acceso: una para iniciar sesión y otra para registrar un nuevo usuario. Para acceder al contenido, es necesario estar registrado. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**!!! La funcionalidad de registar un nuevo usuario esta en revicion y no disponible !!!**
 
-### `npm run eject`
+Para aceder hay que añadir un usuario a su database con **credenciales de acceso**:
+*Email*: test@gmail.com
+*Contraseña*: 123456
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Funcionalidad: 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Autenticación: 
+   - Registro de nuevo usuario (en revision)
+   - Login de Usuario
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* CRUD completo: 
+   - Crear tarea,
+   - Modificar tarea,
+   - Leer tarea, 
+   - Delete tarea
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## In progress
+- Auth0 para login with cuenta de Google
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Application 
+Sign Up / Sign In
+![Sign Up / Sign In](./assets/regist.png)
+Create task
+![Create](./assets/create.png)
+Edit and Delete task
+![Edit and Delete](./assets/edit.png)
+Read task
+![Read](./assets/read.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
