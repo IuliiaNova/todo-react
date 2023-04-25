@@ -4,12 +4,13 @@ import Taskform from "../components/Taskform"
 import Header from "./Header"
 
 const TaskCreate = () => {
-    return(<Box
-    >
+    return(
+    <Box>
         <Container>
             <Taskform mode="create" />
         </Container>
-    </Box>)
+    </Box>
+    )
 }
 
 export default TaskCreate
